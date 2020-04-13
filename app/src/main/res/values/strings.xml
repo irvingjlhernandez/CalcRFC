@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name" translatable="false">TuRFC</string>
+    <string name="bienvenida">Para calcular tu RFC llena los siguientes campos</string>
+    <string name="nombre">Nombre</string>
+    <string name="apepat">Apellido Paterno</string>
+    <string name="apemat">Apellido Materno</string>
+    <string name="biDate">Fecha de Nacimiento:</string>
+    <string name="diaMesAnio">DD/MM/AAAA</string>
+    <string name="mensajeadv">Por favor ingrese letras mayusculas, sin acentos ni caracteres especiales en el campo:</string>
+    <string name="revision">Verifique que los campos estan llenos</string>
+    <string name="campo">El campo</string>
+    <string name="esvac">esta vacio</string>
+    <string name="fecval">Por favor ingrese una fecha valida</string>
+    <string name="turfc">Tu RFC es:</string>
+    <string name="tusino">Tu signo zodiacal es:</string>
+    <string name="zodiacoch">Tu zodiaco chino es:</string>
+    <string name="aries">Aries</string>
+    <string name="tauro">Tauro</string>
+    <string name="geminis">Geminis</string>
+    <string name="leo">Leo</string>
+    <string name="cancer">Cancer</string>
+    <string name="virgo">Virgo</string>
+    <string name="libra">Libra</string>
+    <string name="escorpio">Escorpio</string>
+    <string name="sagitario">Sagitario</string>
+    <string name="capricornio">Capricornio</string>
+    <string name="acuario">Acuario</string>
+    <string name="piscis">Piscis</string>
+    <string name="rata">Rata</string>
+    <string name="buey">Buey</string>
+    <string name="tigre">Tigre</string>
+    <string name="conejo">Conejo</string>
+    <string name="dragon">Dragon</string>
+    <string name="serpiente">Serpiente</string>
+    <string name="caballo">Caballo</string>
+    <string name="cabra">Cabra</string>
+    <string name="mono">Mono</string>
+    <string name="gallo">Gallo</string>
+    <string name="perro">Perro</string>
+    <string name="cerdo">Cerdo</string>
+</resources>

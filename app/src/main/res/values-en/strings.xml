@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nombre">Name</string>
+    <string name="apepat">Last Name</string>
+    <string name="apemat">Maternal Surname</string>
+    <string name="biDate">Birthday:</string>
+    <string name="bienvenida">To calculate your RFC fill in the following fields</string>
+    <string name="diaMesAnio">DD/MM/YYYY</string>
+    <string name="mensajeadv">Please enter capital letters, without accents or special characters in the field:</string>
+    <string name="revision">Verify that the fields are full</string>
+    <string name="campo">The field</string>
+    <string name="esvac">I\'ts empty</string>
+    <string name="fecval">" Please enter a valid date"</string>
+    <string name="turfc">" Your RFC is:"</string>
+    <string name="tusino">" Your zodiac sign is:"</string>
+    <string name="zodiacoch">Your Chinese zodiac is:</string>
+    <string name="aries">Aries</string>
+    <string name="tauro">Taurus</string>
+    <string name="geminis">Gemini</string>
+    <string name="leo">Leo</string>
+    <string name="cancer">Cancer</string>
+    <string name="virgo">Virgo</string>
+    <string name="libra">Libra</string>
+    <string name="escorpio">Scorpio</string>
+    <string name="sagitario">" Sagittarius"</string>
+    <string name="capricornio">" Capricorn"</string>
+    <string name="acuario">Aquarius</string>
+    <string name="piscis">Pisces</string>
+    <string name="rata">Rat</string>
+    <string name="tigre">Tiger</string>
+    <string name="dragon">Dragon</string>
+    <string name="serpiente">Snake</string>
+    <string name="caballo">Horse</string>
+    <string name="mono">Monkey</string>
+    <string name="perro">Dog</string>
+    <string name="cerdo">Pig</string>
+    <string name="buey">Ox</string>
+    <string name="conejo">Rabbit</string>
+    <string name="cabra">Goat</string>
+    <string name="gallo">Rooster</string>
+</resources>
