@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
 
                     Bundle bundle = new Bundle();
+                    bundle.putString("nombre", String.valueOf(etNombre.getText())+" "+String.valueOf(etApPat.getText())+" "+String.valueOf(etApMat.getText()) );
                     bundle.putString("dia",dsaux);
                     bundle.putString("mes",msaux);
                     bundle.putString("anio",asaux);

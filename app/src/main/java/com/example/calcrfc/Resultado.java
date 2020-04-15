@@ -1,22 +1,35 @@
 package com.example.calcrfc;
 
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.time.chrono.ChronoLocalDate;
+import java.time.chrono.ChronoPeriod;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
+import java.util.Locale;
+
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class Resultado extends AppCompatActivity {
 
-    TextView tvPresentacion, tvZodiaco, tvZodiacoCh;
+    TextView tvPresentacion, tvZodiaco, tvZodiacoCh, tvSaludo;
     ImageView ivZodiaco, ivZodCh;
     MediaPlayer mp;
-    String tuRfc = null;
-    int day = 0, month = 0, year = 0;
+    String tuRfc = null, birth = null, hoy = null, diaForma = null, mesForma = null, saludo = null, ans = null, tuEdad = null;
+    int day = 0, month = 0, year = 0, mesAc = 0, diaAc = 0;
+    Calendar calendarioActual = Calendar.getInstance();
+    private static final String CERO = "0";
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +39,12 @@ public class Resultado extends AppCompatActivity {
         tvZodiacoCh = findViewById(R.id.tvZodiacoCh);
         ivZodiaco = findViewById(R.id.ivZodiaco);
         ivZodCh = findViewById(R.id.ivZodCh);
+        tvSaludo = findViewById(R.id.tvSaludo);
 
         tuRfc = getResources().getString(R.string.turfc);
+        saludo = getResources().getString(R.string.Saludo);
+        ans = getResources().getString(R.string.ans);
+        tuEdad = getResources().getString(R.string.tuEdad);
 
         mp = MediaPlayer.create(this, R.raw.saint);
         mp.start();
@@ -35,22 +52,33 @@ public class Resultado extends AppCompatActivity {
         bundle = getIntent().getExtras();
 
         String dia = null, mes = null, anio = null;
-        String cadenita = null;
-
-        //Log.d("DEPURACION",bundle.getInt("dia")+".");
+        String cadenita = null, nombre  = null;
 
         dia = bundle.getString("dia");
         mes = bundle.getString("mes");
         anio = bundle.getString("anio");
         cadenita = bundle.getString("cadenita");
-        //Toast.makeText(Resultado.this, tuRfc+" "+cadenita+anio+mes+dia+".",Toast.LENGTH_LONG).show();
+        nombre = bundle.getString("nombre");
 
         day = Integer.parseInt(dia);
         month = Integer.parseInt(mes);
         year = Integer.parseInt(anio);
-        Log.d("DEPURACION","El anio es: "+year+" y el modulo es: "+verificarZodiacoChino(year)+".");
 
-        tvPresentacion.setText(tuRfc+" "+cadenita+anio.substring(2,4)+mes+dia);
+        mesAc = calendarioActual.get(Calendar.MONTH) + 1;
+        diaAc = calendarioActual.get(Calendar.DAY_OF_MONTH);
+        diaForma = (diaAc < 10)? CERO + String.valueOf(diaAc):String.valueOf(diaAc);
+        mesForma = (mesAc < 10)? CERO + String.valueOf(mesAc):String.valueOf(mesAc);
+
+        birth = anio+"-"+mes+"-"+dia;
+        hoy = calendarioActual.get(Calendar.YEAR)+"-"+mesForma+"-"+diaForma;
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.getDefault());
+        ChronoLocalDate from = ChronoLocalDate.from(formatter.parse(birth));
+        ChronoLocalDate to = ChronoLocalDate.from(formatter.parse(hoy));
+        ChronoPeriod period = ChronoPeriod.between(from, to);
+
+        tvSaludo.setText(saludo+" "+nombre+".");
+        tvPresentacion.setText(tuRfc+" "+cadenita+anio.substring(2,4)+mes+dia+" "+tuEdad+" "+period.get(ChronoUnit.YEARS)+" "+ans);
 
         switch(verificarZodiaco(month,day)){
             case 1:
